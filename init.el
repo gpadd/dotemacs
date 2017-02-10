@@ -16,8 +16,11 @@
 
 ;;; Functions
 (defun normalize-slashes (pathname)
-  "Reverse Windows-backslashes to be Unix-slashes; Get rid of doubles"
-  (replace-regexp-in-string "//" "/" (replace-regexp-in-string "\\\\" "/" pathname)))
+  (replace-regexp-in-string "//"
+			    "/"
+			    (replace-regexp-in-string "\\\\"
+						      "/"
+						      pathname)))
 
 (defun join-path (&rest args)
   ""
@@ -25,10 +28,13 @@
    (mapconcat 'identity args "/")))
 
 (defun expand-site-lisp (dir)
-  ""
   (let
-      ((site-path (join-path emacs-root "bin/emacs25.1/share/emacs/site-lisp" dir))
-       (local-path (join-path emacs-dot-d "site-lisp" dir)))
+      ((site-path (join-path emacs-root
+			     "bin/emacs25.1/share/emacs/site-lisp"
+			     dir))
+       (local-path (join-path emacs-dot-d
+			      "site-lisp"
+			      dir)))
     (or
      (and (file-exists-p local-path) local-path)
      (and (file-exists-p site-path) site-path)
@@ -72,7 +78,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (column-enforce-mode flycheck-cask flycheck-pos-tip flycheck-color-mode-line slime zenburn-theme zenburn zen-mode zen-and-art-theme use-package s request paredit nasm-mode markdown-mode langdoc helm flycheck epc company-quickhelp))))
+    (column-enforce-mode flycheck-cask flycheck-pos-tip flycheck-color-mode-line zenburn-theme zenburn zen-mode zen-and-art-theme use-package s request paredit nasm-mode markdown-mode langdoc helm flycheck epc company-quickhelp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

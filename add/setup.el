@@ -52,12 +52,10 @@
   (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
   (add-hook 'asm-mode-hook 'font-lock-mode))
 
-(use-package slime
-  :defer t
-  :config
-  (setq inferior-lisp-program "/home/add/bin/sbcl/bin/sbcl")
-  (load "/home/add/quicklisp/clhs-use-local.el" t))
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/home/add/bin/sbcl/bin/sbcl")
 
+(load "/home/add/quicklisp/clhs-use-local.el" t)
 
 (use-package paredit
   :init
