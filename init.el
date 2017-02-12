@@ -61,27 +61,21 @@
 (setq windows-p (eq system-type 'windows-nt)
       linux-p (eq system-type 'gnu/linux))
 
+(defvar personal-lisp-configurations (join-path emacs-dot-d "lisp"))
 
 ;;; The rest
-(add-to-list 'load-path (join-path emacs-dot-d "add")) ;; My config files
+					; My config files
+(add-to-list 'load-path (join-path personal-lisp-configurations))
 (add-site-lisp-dir "z80")
 
 (use-package "addfunc")
 (use-package "addkeys")
 (use-package "setup")
+(use-package "customized"
+  :init
+  (setq custom-file (join-path personal-lisp-configurations
+			       "customized.el"))
+  :config
+  (load custom-file))
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (column-enforce-mode flycheck-cask flycheck-pos-tip flycheck-color-mode-line zenburn-theme zenburn zen-mode zen-and-art-theme use-package s request paredit nasm-mode markdown-mode langdoc helm flycheck epc company-quickhelp))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

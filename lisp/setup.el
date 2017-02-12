@@ -37,6 +37,10 @@
 
 (setq-default indent-tabs-mode t)
 
+(use-package lua-mode
+  :config
+  (setq lua-indent-level 2))
+
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'shell-mode-hook 'compilation-shell-minor-mode)
 
