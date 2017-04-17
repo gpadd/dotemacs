@@ -7,7 +7,7 @@
       nil t))
 
 (c-add-style "vsxu-style"
-	     '("linux"
+	     '("bsd"
 	       (indent-tabs-mode . nil)
 	       (c-basic-offset . 2)
 	       (tab-width . 2)
