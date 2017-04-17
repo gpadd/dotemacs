@@ -1,14 +1,14 @@
 ;;; setup.el --- Summary
 ;;; Commentary:
 ;;; Code:
-(use-package helm
-  :init
-  (require 'helm-config)
-  :bind (("M-x" . helm-M-x)
-         ("M-<f5>" . helm-find-files)
-         ([f10] . helm-buffers-list)))
+;(use-package helm
+;  :init
+;  (require 'helm-config)
+;  :bind (("M-x" . helm-M-x)
+;         ("M-<f5>" . helm-find-files)
+;         ([f10] . helm-buffers-list)))
 
-(load-theme 'wombat t)
+(load-theme 'zenburn t)
 
 (setq c-default-style "cpp-style")
 
@@ -57,26 +57,31 @@
   (add-hook 'asm-mode-hook 'font-lock-mode))
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/home/add/bin/sbcl/bin/sbcl")
+(setq inferior-lisp-program "sbcl")
 
-(load "/home/add/quicklisp/clhs-use-local.el" t)
+;; (load "/home/add/quicklisp/clhs-use-local.el" t)
 
 (use-package paredit
   :init
-  (autoload 'enable-paredit-mode "paredit" nil t)
+  (autoload 'enable-paredit-mode "paredit" "paredit" t)
   :config
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
   (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode))
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
 
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+;; (use-package flycheck
+;;   :ensure t
+;;   :init (global-flycheck-mode))
 
 (use-package column-number-mode
   :init
-  (add-hook 'prog-mode-hook 'column-enforce-mode))
+  (add-hook 'c-mode-hook 'column-enforce-mode))
 
 ;; z80 stuff
 (use-package z80-mode
@@ -87,4 +92,43 @@
 	      (electric-indent-mode -1)
 	      (setq tab-stop-list (number-sequence 4 120 4)))))
 
+;; (use-package pry
+;;   :init
+;;   :load-path "site-lisp/emacs-pry")
+
+;; (use-package ruby-mode
+;;   :mode "\\.rb\\'"
+;;   :interpreter "ruby"
+;;   :init
+;;   (require 'rbenv)
+;;   ;;(require 'pry)
+;;   ;; :bind (("<f8>" . run-pry)
+;;   ;; 	 ("C-<f9>" . pry-intercept)
+;;   ;; 	 ("<f9>" . pry-intercept-rerun))
+;;   :config
+;;   (global-rbenv-mode))
+
+(use-package c-mode
+  :init
+  (add-hook 'c-mode-hook 'company-mode))
+
+(use-package c++-mode
+  :init
+  (add-hook 'c++-mode-hook 'company-mode))
+
+(use-package evil
+  :init
+  (setq evil-search-module 'evil-search
+	evil-want-C-u-scroll t
+	evil-want-C-w-in-emacs-state t)
+  :config
+  (evil-mode 0))
+
+(use-package company
+  :config
+  (setq company-backends (delete 'company-semantic company-backends))
+  :bind (:map c-mode-map
+	      ("C-x TAB" . company-complete)
+	      :map c++-mode-map
+	      ("C-x TAB" . company-complete)))
 ;;; setup.el ends here
