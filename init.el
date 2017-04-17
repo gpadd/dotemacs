@@ -13,7 +13,7 @@
 (tooltip-mode -1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
+(setq initial-scratch-message nil)
 ;;; Functions
 (defun normalize-slashes (pathname)
   (replace-regexp-in-string "//"
@@ -77,5 +77,8 @@
 			       "customized.el"))
   :config
   (load custom-file))
+
+;;(setq exec-path (append exec-path '("/home/add/.rbenv/bin")))
+
 
 ;;; init.el ends here
