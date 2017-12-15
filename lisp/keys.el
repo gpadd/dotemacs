@@ -1,6 +1,6 @@
-;;; addkeys.el --- Summary
-
-
+;;; keys.el --- Summary
+;;; Commentary:
+;;; Code:
 (global-set-key (kbd "<f5>") (lambda ()
 			       (interactive)
 			       (call-interactively 'compile)))
@@ -20,4 +20,4 @@
 
 (global-set-key (kbd "<f12>") 'slime-selector)
 
-;;; addkeys.el ends here
+;;; keys.el ends here
