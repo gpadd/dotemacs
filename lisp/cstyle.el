@@ -15,8 +15,8 @@
 				   (statement-case-open . 0)
 				   (case-label . 0)))))
 
-(c-add-style "entropy-crush"
-	     '("linux-tabs-only"
+(c-add-style "add"
+	     '("linux"
 	       (indent-tabs-mode . t)
 	       (c-basic-offset . 4)
 	       (tab-width . 4)

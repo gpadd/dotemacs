@@ -68,6 +68,7 @@
 (use-package "funct")
 (use-package "keys")
 (use-package "cstyle")
+(use-package "errors")
 (use-package "setup-packages")
 (use-package "customized"
   :init
