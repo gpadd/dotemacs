@@ -61,10 +61,6 @@
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode))
 
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
 ;; (use-package column-number-mode
 ;;   :init
 ;;   (add-hook 'c-mode-hook 'column-enforce-mode))
