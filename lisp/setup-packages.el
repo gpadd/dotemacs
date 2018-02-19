@@ -1,6 +1,10 @@
 ;;; setup-packages.el --- Summary
 ;;; Commentary:
 ;;; Code:
+
+(setq windows-p (eq system-type 'windows-nt)
+      linux-p (eq system-type 'gnu/linux))
+
 (load-theme 'wombat t)
 
 (setq c-default-style "add")
@@ -39,6 +43,10 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
+(when linux-p
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "sbcl"))
 
 (use-package magit
   :ensure t)
