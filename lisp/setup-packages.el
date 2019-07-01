@@ -20,6 +20,12 @@
 
 (setq confirm-nonexistent-file-or-buffer nil)
 
+(use-package helm
+  :bind (("M-x" . helm-M-x)
+         ("M-<f5>" . helm-find-files)
+         ([f10] . helm-buffers-list)
+         ([S-f10] . helm-recentf)))
+
 (use-package ido
   :init
   (ido-mode 1)
@@ -44,9 +50,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-(when linux-p
-  (load (expand-file-name "~/quicklisp/slime-helper.el"))
-  (setq inferior-lisp-program "sbcl"))
+;;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;;  (setq inferior-lisp-program "/opt/sbcl/bin/sbcl")
+;;(setq inferior-lisp-program "~/bin/ccl/lx86cl64")
 
 (use-package magit
   :ensure t)
@@ -74,6 +80,9 @@
 	      (electric-indent-mode -1)
 	      (setq tab-stop-list (number-sequence 4 120 4)))))
 
+(use-package powerline
+  :init
+  (powerline-default-theme))
 
 (setq initial-scratch-message nil)
 
