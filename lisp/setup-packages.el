@@ -71,14 +71,14 @@
 ;;   :init
 ;;   (add-hook 'c-mode-hook 'column-enforce-mode))
 
-;; z80 stuff
-(use-package z80-mode
-  :config
-  (add-hook 'z80-mode-hook
-	    (lambda ()
-	      (setq indent-tabs-mode t)
-	      (electric-indent-mode -1)
-	      (setq tab-stop-list (number-sequence 4 120 4)))))
+;; ;; z80 stuff
+;; (use-package z80-mode
+;;   :config
+;;   (add-hook 'z80-mode-hook
+;; 	    (lambda ()
+;; 	      (setq indent-tabs-mode t)
+;; 	      (electric-indent-mode -1)
+;; 	      (setq tab-stop-list (number-sequence 4 120 4)))))
 
 (use-package powerline
   :init
