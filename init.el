@@ -5,8 +5,9 @@
 (require 'cl)
 
 (package-initialize)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.milkbox.net/packages/")
+			 ("org" . "https://orgmode.org/elpa/")))
 (eval-when-compile
   (defun normalize-slashes (pathname)
     (replace-regexp-in-string "//" "/"
