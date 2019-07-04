@@ -70,14 +70,12 @@
 (use-package "cstyle")
 (use-package "errors")
 (use-package "setup-packages")
-(let* ((custd-1 (join-path personal-lisp-configurations "customized.el"))
-       (custd-2 (create-file-buffer custd-1)))
-  (if (not (file-exists-p custd-1))
-      (progn
-	(switch-to-buffer custd-2)
-	(write-file custd-1 t)
-	(switch-to-prev-buffer)
-	(use-package "customized"))
-    (use-package "customized")))
+(use-package "customized"
+  :init
+  (setq custom-file (join-path personal-lisp-configurations "customized.el"))
+  :config
+  (load custom-file))
+
+
 
 ;;; init.el ends here
