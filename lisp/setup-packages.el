@@ -20,12 +20,6 @@
 
 (setq confirm-nonexistent-file-or-buffer nil)
 
-(use-package helm
-  :bind (("M-x" . helm-M-x)
-         ("M-<f5>" . helm-find-files)
-         ([f10] . helm-buffers-list)
-         ([S-f10] . helm-recentf)))
-
 (use-package ido
   :init
   (ido-mode 1)
