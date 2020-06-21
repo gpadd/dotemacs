@@ -38,7 +38,7 @@
     (or
      (and (file-exists-p local-path) local-path)
      (and (file-exists-p site-path) site-path)
-     (and t (error "site-lisp directory '%s' not found" dir)))))
+     (and t (error "Site-lisp directory '%s' not found" dir)))))
 
 (defun add-site-lisp-dir (dir)
   (add-to-list 'load-path (expand-site-lisp dir)))
@@ -54,7 +54,7 @@
 		       new-path)))
 	    candidates
 	    :initial-value nil))
-  "Root folder for the emacs config")
+  "Root folder for the Emacs config.")
 
 (defvar emacs-dot-d (join-path emacs-root ".emacs.d"))
 
@@ -64,7 +64,6 @@
 (defvar personal-lisp-configurations (join-path emacs-dot-d "lisp"))
 
 (add-to-list 'load-path (join-path personal-lisp-configurations))
-(add-site-lisp-dir "z80")
 
 (use-package "funct")
 (use-package "keys")
@@ -73,8 +72,7 @@
 (use-package "setup-packages")
 (use-package "customized"
   :init
-  (setq custom-file (join-path personal-lisp-configurations
-			       "customized.el"))
+  (setq custom-file (join-path personal-lisp-configurations "customized.el"))
   :config
   (load custom-file))
 
