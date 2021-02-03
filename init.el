@@ -2,12 +2,12 @@
 ;;; Commentary:
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'package)
 
 (package-initialize)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+			 ("melpa" . "https://melpa.org/packages/")))
 (eval-when-compile
   (defun normalize-slashes (pathname)
     (replace-regexp-in-string "//" "/"
@@ -48,7 +48,7 @@
   (let ((candidates
 	 (list (join-path (getenv "HOME") "emacs")
 	       (getenv "HOME"))))
-    (reduce (lambda (old-path new-path)
+    (cl-reduce (lambda (old-path new-path)
 	      (or old-path
 		  (and (file-exists-p (join-path new-path ".emacs.d"))
 		       new-path)))
