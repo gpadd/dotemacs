@@ -16,7 +16,8 @@
 (setq browse-url-browser-function 'eww-browse-url)
 
 (setq inhibit-startup-message t
-      inhibit-startup-echo-area-message t)
+      inhibit-startup-echo-area-message t
+      initial-scratch-message nil)
 
 (setq confirm-nonexistent-file-or-buffer nil)
 
@@ -113,6 +114,5 @@
       (setenv "PATH" (concat putty-directory ";" (getenv "PATH")))
       (add-to-list 'exec-path putty-directory))))
 
-(setq initial-scratch-message nil)
 
 ;;; setup-packages.el ends here
