@@ -20,6 +20,9 @@
 
 (setq confirm-nonexistent-file-or-buffer nil)
 
+;; Disable middle-mouseclick yank
+(global-set-key (kbd "<mouse-2>") nil)
+
 ;; (use-package ido
 ;;   :init
 ;;   (ido-mode 1)
@@ -31,6 +34,10 @@
 (use-package ivy
   :init
   (ivy-mode 1))
+
+(use-package clang-format
+  :bind ("C-c C-f" . clang-format-buffer)
+  :bind ("C-c f" . clang-format-region))
 
 ;;; Use shift+directionkey to switch window
 (when (fboundp 'windmove-default-keybindings)
@@ -56,16 +63,16 @@
 ;; (use-package magit
 ;;   :ensure t)
 
-(use-package geiser
-  :config
-  (when windows-p
-    (setq scheme-program-name "C:\\Program Files\\Chez Scheme 9.5\\bin\\ta6nt\\scheme"))
-  (when linux-p
-    (setq scheme-program-name "chez")))
+;; (use-package geiser
+;;   :config
+;;   (when windows-p
+;;     (setq scheme-program-name "C:\\Program Files\\Chez Scheme 9.5\\bin\\ta6nt\\scheme"))
+;;   (when linux-p
+;;     (setq scheme-program-name "chez")))
 
-(add-to-list 'auto-mode-alist
-	     '("\\.sls\\'" . scheme-mode)
-             '("\\.sc\\'" . scheme-mode))
+;; (add-to-list 'auto-mode-alist
+;; 	     '("\\.sls\\'" . scheme-mode)
+;;              '("\\.sc\\'" . scheme-mode))
 
 
 (use-package paredit
@@ -84,13 +91,16 @@
 ;;   (add-hook 'c-mode-hook 'column-enforce-mode))
 
 ;; z80 stuff
-(use-package z80-mode
-  :config
-  (add-hook 'z80-mode-hook
-	    (lambda ()
-	      (setq indent-tabs-mode t)
-	      (electric-indent-mode -1)
-	      (setq tab-stop-list (number-sequence 4 120 4)))))
+;; (use-package z80-mode
+;;   :config
+;;   (add-hook 'z80-mode-hook
+;; 	    (lambda ()
+;; 	      (setq indent-tabs-mode t)
+;; 	      (electric-indent-mode -1)
+;; 	      (setq tab-stop-list (number-sequence 4 120 4)))))
+
+(setq racket-program (when linux-p
+		       "/home/add/bin/racket/bin/racket"))
 
 (when windows-p
   (setenv "CHEZSCHEMELIBDIRS" "C:\\scheme\\lib;")
