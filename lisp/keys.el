@@ -16,7 +16,7 @@
 				(interactive)
 				(other-window 1)))
 
-(global-set-key (kbd "C-x M-o") (lambda ()
+(global-set-key (kbd "C-x p") (lambda ()
 				(interactive)
 				(other-window -1)))
 
