@@ -12,6 +12,8 @@
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'c-mode-hook 'development-mode)
+
 
 (setq browse-url-browser-function 'eww-browse-url)
 
