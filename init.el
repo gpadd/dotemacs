@@ -39,23 +39,6 @@
 (use-package addutils
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
-(use-package evil
-  :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-below t)
-  ;;(evil-mode)
-  :config
-  (evil-set-undo-system 'undo-redo))
-(use-package evil-collection
-  :after evil
-  :config
-  (setq evil-collection-mode-list '(dashboard dired ibuffer))
-  ;;(evil-collection-init)
-  )
-(use-package evil-tutor)
-
 (global-set-key [f5] 'compile)
 (global-set-key [f9] 'recompile)
 (global-set-key [f12] 'shell-command)
@@ -65,16 +48,16 @@
   :config
   (editorconfig-mode 1))
 
-(setq inferior-lisp-program "sbcl")
-
 (use-package paredit
+  :ensure t
   :hook
-  (emacs-lisp-mode . enable-paredit-mode)
-  ;;(eval-expression-minibuffer-setup . enable-paredit-mode)
-  ;;(ielm-mode . enable-paredit-mode)
-  (lisp-mode . enable-paredit-mode)
-  ;;(lisp-interaction-mode . enable-paredit-mode)
+  (emacs-lisp-mode . enable-paredit-mode))
+
+(use-package paren
+  :ensure nil
+  :init
+  (setq show-paren-delay 0)
   :config
-  (show-paren-mode t))
+  (show-paren-mode 1))
 
 (add-to-list 'major-mode-remap-alist '(perl-mode . cperl-mode))
