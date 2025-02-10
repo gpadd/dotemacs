@@ -48,10 +48,17 @@
   :config
   (editorconfig-mode 1))
 
+(use-package slime
+  :ensure t
+  :config
+  (setq inferior-lisp-program "sbcl")
+  (global-set-key "\C-cs" 'slime-selector))
+
 (use-package paredit
   :ensure t
   :hook
-  (emacs-lisp-mode . enable-paredit-mode))
+  (emacs-lisp-mode . enable-paredit-mode)
+  (lisp-mode . enable-paredit-mode))
 
 (use-package paren
   :ensure nil
