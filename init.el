@@ -37,7 +37,12 @@
 
 (add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
 (use-package addutils
+  :load-path "elisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
+
+(use-package ed
+  :load-path "elisp/"
+  :commands ed-mode)
 
 (global-set-key [f5] 'compile)
 (global-set-key [f9] 'recompile)
