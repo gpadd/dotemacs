@@ -57,6 +57,7 @@
   :ensure t
   :config
   (setq inferior-lisp-program "sbcl")
+  (slime-setup '(slime-fancy))
   (global-set-key "\C-cs" 'slime-selector))
 
 (use-package paredit
