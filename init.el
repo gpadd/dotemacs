@@ -35,18 +35,19 @@
 (setq user-full-name "Andreas Wilfer"
       user-mail-address "andreas@wilfer.se")
 
-(add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
+;;(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
 (use-package zenburn-theme
   :ensure t
   :config
   (load-theme 'zenburn t))
 
 (use-package addutils
-  :load-path "elisp/"
+  :load-path "lisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
 (use-package ed
-  :load-path "elisp/"
+  :load-path "lisp/"
   :commands ed-mode)
 
 (global-set-key [f5] 'compile)
