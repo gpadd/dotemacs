@@ -8,7 +8,7 @@
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
 
-(load-theme 'wombat t)
+;;(load-theme 'wombat t)
 
 (setq calendar-week-start-day 1)
 (setq backup-inhibited t)
@@ -36,6 +36,11 @@
       user-mail-address "andreas@wilfer.se")
 
 (add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
+
 (use-package addutils
   :load-path "elisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
