@@ -99,10 +99,4 @@
 (use-package evil-tutor
   :ensure t)
 
-(use-package forth-mode
-  :ensure t)
-
-(use-package uxntal-mode
-  :ensure t)
-
 (add-to-list 'major-mode-remap-alist '(perl-mode . cperl-mode))

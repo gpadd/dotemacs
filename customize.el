@@ -6,7 +6,7 @@
  '(custom-safe-themes
    '("09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93" default))
  '(package-selected-packages
-   '(nov zenburn-theme forth-mode slime uxntal-mode uxn-mode evil-tutor evil-collection evil paredit editorconfig company magit)))
+   '(nov zenburn-theme slime evil-tutor evil-collection evil paredit editorconfig company magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
