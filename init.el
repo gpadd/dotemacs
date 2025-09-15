@@ -47,7 +47,7 @@
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
 (use-package ed
-  :load-path "lisp/"
+  :load-path "site-lisp/"
   :commands ed-mode)
 
 (global-set-key [f5] 'compile)
