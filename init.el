@@ -37,6 +37,10 @@
 
 ;;(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+(global-set-key [f5] 'compile)
+(global-set-key [f9] 'recompile)
+(global-set-key [f12] 'shell-command)
+
 (use-package zenburn-theme
   :ensure t
   :config
@@ -46,31 +50,10 @@
   :load-path "lisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
-(use-package ed
-  :load-path "site-lisp/"
-  :commands ed-mode)
-
-(global-set-key [f5] 'compile)
-(global-set-key [f9] 'recompile)
-(global-set-key [f12] 'shell-command)
-
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
-
-(use-package slime
-  :ensure t
-  :config
-  (setq inferior-lisp-program "sbcl")
-  (slime-setup '(slime-fancy))
-  (global-set-key "\C-cs" 'slime-selector))
-
 (use-package paredit
   :ensure t
   :hook
-  (emacs-lisp-mode . enable-paredit-mode)
-  (lisp-mode . enable-paredit-mode))
+  (emacs-lisp-mode . enable-paredit-mode))
 
 (use-package paren
   :ensure nil
