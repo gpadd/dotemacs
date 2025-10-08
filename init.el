@@ -8,8 +8,6 @@
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
 
-;;(load-theme 'wombat t)
-
 (setq calendar-week-start-day 1)
 (setq backup-inhibited t)
 (setq inhibit-startup-screen t
@@ -41,10 +39,23 @@
 (global-set-key [f9] 'recompile)
 (global-set-key [f12] 'shell-command)
 
-(use-package zenburn-theme
-  :ensure t
+(use-package materiadd-theme
+  :load-path "lisp/themes"
   :config
-  (load-theme 'zenburn t))
+  (load-theme 'materiadd t)
+  (with-eval-after-load 'faces
+    (set-face-attribute 'default nil :stipple nil :inverse-video nil
+			:family "JetBrains Mono" :box nil
+			:strike-through nil :overline nil
+			:underline nil :slant 'normal
+			:weight 'normal :width 'normal
+			:foundry "nil"))
+  (with-eval-after-load 'faces
+    (set-face-attribute 'mode-line-buffer-id nil :background 'unspecified)
+    (set-face-attribute 'link nil :foreground 'unspecified)
+    (set-face-attribute 'header-line nil :background 'unspecified)
+    (set-face-attribute 'diff-header nil :background 'unspecified)
+    (set-face-attribute 'diff-file-header nil :background 'unspecified)))
 
 (use-package addutils
   :load-path "lisp/"
