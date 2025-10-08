@@ -51,7 +51,8 @@
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
 (use-package forth-mode
-  :load-path "site-lisp/")
+  :load-path "site-lisp/"
+  :commands forth-mode)
 
 (use-package paredit
   :ensure t
