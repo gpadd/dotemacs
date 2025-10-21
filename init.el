@@ -65,10 +65,26 @@
   :load-path "site-lisp/"
   :commands forth-mode)
 
+(use-package slime
+  :ensure t
+  :config
+  (setq inferior-lisp-program "sbcl")
+  (slime-setup '(slime-fancy))
+  (global-set-key "\C-cs" 'slime-selector))
+
 (use-package paredit
   :ensure t
   :hook
-  (emacs-lisp-mode . enable-paredit-mode))
+  (emacs-lisp-mode . enable-paredit-mode)
+  (lisp-mode . enable-paredit-mode))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :after paredit
+  :hook
+  (emacs-lisp-mode . rainbow-delimiters-mode)
+  (lisp-mode . rainbow-delimiters-mode)
+  (lisp-interaction-mode . rainbow-delimiters-mode))
 
 (use-package paren
   :ensure nil
