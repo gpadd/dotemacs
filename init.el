@@ -12,33 +12,30 @@
 
 (load-theme 'modus-vivendi-tinted t)
 
-(setopt ring-bell-function 'ignore)
-(setq calendar-week-start-day 1)
-(setq backup-inhibited t)
-(setq inhibit-startup-screen t
-      initial-scratch-message ";;; -*- lexical-binding: t; -*-\n\n")
-(setq frame-inhibit-implied-resize t)
+(setopt ring-bell-function 'ignore
+	calendar-week-start-day 1
+	backup-inhibited t
+	inhibit-startup-screen t
+	initial-scratch-message ";;; -*- lexical-binding: t; -*-\n\n"
+	frame-inhibit-implied-resize t
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(column-number-mode 1)
-(show-paren-mode 1)
-;;(tooltip-mode -1)
-;;(menu-bar-mode -1)
+	tool-bar-mode nil
+	scroll-bar-mode nil
+	column-number-mode t
+	show-paren-mode t
+	;; tooltip-mode -1
+	;; menu-bar-mode -1
 
-;;(setq display-line-numbers-type 't)
-(setq display-line-numbers-type 'relative)
+	;; display-line-numbers-type 't
+	display-line-numbers-type 'relative
+
+	confirm-nonexistent-file-or-buffer nil)
+
 (global-display-line-numbers-mode)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setq confirm-nonexistent-file-or-buffer nil)
 (fset 'yes-or-no-p 'y-or-n-p)
 (set-language-environment "UTF-8")
-
-(setq user-full-name "Andreas Wilfer"
-      user-mail-address "andreas@wilfer.se")
-
-;;(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (global-set-key [f5] 'compile)
 (global-set-key [f9] 'recompile)
@@ -49,7 +46,7 @@
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
 (use-package forth-mode
-  :load-path "site-lisp/"
+  :load-path "lisp/"
   :commands forth-mode)
 
 (use-package slime
