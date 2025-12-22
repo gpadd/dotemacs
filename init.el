@@ -10,7 +10,7 @@
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
 
-(load-theme 'modus-vivendi-tinted t)
+(load-theme 'wombat)
 
 (setopt ring-bell-function 'ignore
 	calendar-week-start-day 1
@@ -18,6 +18,8 @@
 	inhibit-startup-screen t
 	initial-scratch-message ";;; -*- lexical-binding: t; -*-\n\n"
 	frame-inhibit-implied-resize t
+
+	dired-vc-rename-file t
 
 	tool-bar-mode nil
 	scroll-bar-mode nil
@@ -38,6 +40,7 @@
 (set-language-environment "UTF-8")
 
 (global-set-key [f5] 'compile)
+(global-set-key [f8] 'font-lock-mode)
 (global-set-key [f9] 'recompile)
 (global-set-key [f12] 'shell-command)
 
@@ -59,6 +62,7 @@
 (use-package paredit
   :ensure t
   :hook
+  (scheme-mode . enable-paredit-mode)
   (emacs-lisp-mode . enable-paredit-mode)
   (lisp-mode . enable-paredit-mode))
 
@@ -66,6 +70,7 @@
   :ensure t
   :after paredit
   :hook
+  (scheme-mode . rainbow-delimiters-mode)
   (emacs-lisp-mode . rainbow-delimiters-mode)
   (lisp-mode . rainbow-delimiters-mode)
   (lisp-interaction-mode . rainbow-delimiters-mode))
@@ -87,13 +92,14 @@
   ;;(evil-mode)
   :config
   (evil-set-undo-system 'undo-redo))
+
 (use-package evil-collection
   :ensure t
   :after evil
   :config
   (setq evil-collection-mode-list '(dashboard dired ibuffer))
-  ;;(evil-collection-init)
-  )
+  (evil-collection-init))
+
 (use-package evil-tutor
   :ensure t)
 
