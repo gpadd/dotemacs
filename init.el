@@ -48,17 +48,6 @@
   :load-path "lisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
-(use-package forth-mode
-  :load-path "lisp/"
-  :commands forth-mode)
-
-(use-package slime
-  :ensure t
-  :config
-  (setq inferior-lisp-program "sbcl")
-  (slime-setup '(slime-fancy))
-  (global-set-key "\C-cs" 'slime-selector))
-
 (use-package paredit
   :ensure t
   :hook
