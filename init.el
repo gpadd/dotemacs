@@ -59,6 +59,22 @@
   (slime-setup '(slime-fancy))
   (global-set-key "\C-cs" 'slime-selector))
 
+(use-package org-mem
+  :defer
+  :config
+  (setq org-mem-do-sync-with-org-id t)
+  (setq org-mem-watch-dirs
+        (list "~/orgvault"))
+  (org-mem-updater-mode))
+
+(use-package org-node
+  :init
+  (keymap-global-set "M-o n" org-node-global-prefix-map)
+  (with-eval-after-load 'org
+    (keymap-set org-mode-map "M-o n" org-node-org-prefix-map))
+  :config
+  (org-node-cache-mode))
+
 (use-package paredit
   :ensure t
   :hook

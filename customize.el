@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company evil-collection evil-tutor magit paredit
+   '(company evil-collection evil-tutor magit org-mem org-node paredit
 	     rainbow-delimiters slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
