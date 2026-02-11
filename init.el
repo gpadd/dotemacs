@@ -57,7 +57,7 @@
   :config
   (setq org-mem-do-sync-with-org-id t)
   (setq org-mem-watch-dirs
-        (list "~/orgvault"))
+        (list "~/org"))
   (org-mem-updater-mode))
 
 (use-package org-node
