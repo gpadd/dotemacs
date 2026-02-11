@@ -44,6 +44,10 @@
 (global-set-key [f8] 'font-lock-mode)
 (global-set-key [f9] 'recompile)
 
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
 (use-package addutils
   :load-path "lisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
