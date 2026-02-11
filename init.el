@@ -52,6 +52,8 @@
   :load-path "lisp/"
   :bind ("M-g M-g" . addutils-goto-line-relative))
 
+(use-package org-id)
+
 (use-package org-mem
   :defer
   :config
