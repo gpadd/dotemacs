@@ -40,9 +40,9 @@
 (set-language-environment "UTF-8")
 
 (global-set-key [f5] 'compile)
+(global-set-key [f6] 'shell-command)
 (global-set-key [f8] 'font-lock-mode)
 (global-set-key [f9] 'recompile)
-(global-set-key [f12] 'shell-command)
 
 (use-package addutils
   :load-path "lisp/"
