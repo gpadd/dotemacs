@@ -49,8 +49,7 @@
 (global-set-key (kbd "C-c c") #'org-capture)
 
 (use-package addutils
-  :load-path "lisp/"
-  :bind ("M-g M-g" . addutils-goto-line-relative))
+  :load-path "lisp/")
 
 (use-package forth-mode
   :load-path "lisp/"
