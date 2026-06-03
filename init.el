@@ -55,6 +55,13 @@
   :load-path "lisp/"
   :commands forth-mode)
 
+(use-package slime
+  :ensure t
+  :config
+  (setq inferior-lisp-program "sbcl")
+  (slime-setup '(slime-fancy))
+  (global-set-key "\C-cs" 'slime-selector))
+
 (use-package org-id)
 
 (use-package org-mem
