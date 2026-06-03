@@ -119,3 +119,7 @@
   :ensure t)
 
 (add-to-list 'major-mode-remap-alist '(perl-mode . cperl-mode))
+
+;; C configuration
+(setopt c-default-style "linux"
+	c-basic-offset 4)
