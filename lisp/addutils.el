@@ -31,5 +31,9 @@
   (interactive "NGoto relative line: ")
   (forward-line arg))
 
+(defun addutils-ding-anyway ()
+      (let ((ring-bell-function 'ding))
+	(ding)))
+
 (provide 'addutils)
 ;;; addutils.el ends here

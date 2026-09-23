@@ -12,8 +12,12 @@
 
 (load-theme 'wombat)
 
-(setopt ring-bell-function 'ignore
+(setopt	ring-bell-function 'ignore
+
+	org-timer-default-timer "00:25:00"
+	org-clock-sound t
 	calendar-week-start-day 1
+
 	backup-inhibited t
 	inhibit-startup-screen t
 	initial-scratch-message ";;; -*- lexical-binding: t; -*-\n\n"
@@ -31,11 +35,15 @@
 	;; display-line-numbers-type 't
 	display-line-numbers-type 'relative
 
+	package-install-upgrade-built-in t
+
 	confirm-nonexistent-file-or-buffer nil)
 
 (global-display-line-numbers-mode)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'org-timer-done-hook 'addutils-ding-anyway)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (set-language-environment "UTF-8")
 
@@ -115,6 +123,9 @@
 
 (use-package evil-tutor
   :ensure t)
+
+(use-package nix-mode
+  :mode "\\.nix\\'")
 
 (add-to-list 'major-mode-remap-alist '(perl-mode . cperl-mode))
 
